@@ -2,7 +2,7 @@ name: Keep App Alive
 
 on:
   schedule:
-    - cron: '0 0 */6 * *'  # This will run the action every 6 days
+    - cron: '0 0 * * *'  # This will run the action every day
   push:
     branches:
       - main
