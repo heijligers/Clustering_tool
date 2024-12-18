@@ -2,7 +2,7 @@ name: Keep App Alive
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # This will run the action every day
+    - cron: '0 0 * * *'  # This runs the action daily at midnight UTC
   push:
     branches:
       - main
@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # Ensure using v3 for Node.js 20 support
+      uses: actions/checkout@v3
 
     - name: Create an empty commit
       run: |
@@ -25,4 +25,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
-        git push
+        git push --force
